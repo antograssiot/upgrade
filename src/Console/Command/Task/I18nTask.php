@@ -47,7 +47,7 @@ class I18nTask extends BaseTask {
  */
 	protected function _adjustI18n($contents) {
 		// Basic functions
-		$pattern = '#\_\_(n|c)?\((\'|")(.*?)(?<!\\\\)\2,#';
+		$pattern = '#__(n|c)?\((\'|")(.*?)(?<!\\\\)\2,#';
 
 		$replacement = function ($matches) {
 			$string = $matches[3];
@@ -65,7 +65,7 @@ class I18nTask extends BaseTask {
 		$contents = preg_replace_callback($pattern, $replacement, $contents, -1, $count);
 
 		// Domain functions
-		$pattern = '#\_\_(|d|dc|dn|dcn)?\((\'|")(.*?)(?<!\\\\)\2,\s*(\'|")(.*?)(?<!\\\\)\4,#';
+		$pattern = '#__(|d|dc|dn|dcn)?\((\'|")(.*?)(?<!\\\\)\2,\s*(\'|")(.*?)(?<!\\\\)\4,#';
 
 		$replacement = function ($matches) {
 			$string = $matches[5];
